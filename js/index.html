@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Lady Armijos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGINA INFORMATIVA</title>
+    <!--ICONO DE LA PAGINA-->
+    <link rel="shortcut icon" href="../imagenes/logo.png" type="image/x-icon">
+    <!--SCSS-->
+    <link rel="stylesheet" href="../sass/style.css">
+    <!--VALIDACION DE DATOS-->
+    <script>
+        function validarFormulario() {
+            // Obtener los valores ingresados en los campos del formulario
+            var nombre = document.getElementById("nombre").value;
+            var correo = document.getElementById("correo").value;
+            var mensaje = document.getElementById("mensaje").value;
+
+            // Validar que los campos no estén vacíos
+            if (nombre === "" || correo === ""|| mensaje === "") {
+                alert("Por favor, complete todos los campos");
+                return false;
+            }
+
+            // Validar el correo
+            var correoExpresion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!correoExpresion.test(correo)) {
+                alert("Por favor, ingrese un correo electrónico válido");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+  <header  id="inicio" class="header">
+        <div class="menu container">
+          <a href="#" class="logo"><img src="../imagenes/logo.png"></a>
+          <nav class="navbar">
+            <ul>
+                <li><a href="#Inicio">Inicio</a></li>
+                <li class="submenulist" ><a href="#productos">Productos</a>
+                    <ul class="submenu">
+                        <li><a href="#aguardiente">Aguardientes</a></li> 
+                    </ul>
+                </li>
+                <li class="submenulist1"><a href="#procesos">Procesos</a>
+                    <ul class="submenu1">
+                        <li> <a href="#destilacion">Destilaciòn Artesanal</a></li>
+                        <li> <a href="#moderna">Moderna Elaboraciòn</a></li>
+                    </ul>
+                </li>
+                <li class="submenulist2"><a href="#empresa">Empresa</a>
+                    <ul class="submenu2">
+                        <li> <a href="#tradicion">Tradiciòn</a></li>
+                        <li> <a href="#videos">Videos</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        </div>
+        <div class="header-content container">
+             <h1>Aguardiente</h1>
+             <p>Te damos la bienvenida a un mundo lleno de sabor, calidad y deleite. Nos complace presentarte nuestra exquisita selección de licores, cuidadosamente elaborados 
+                para satisfacer los paladares más exigentes. Imagina un momento de relajación y disfrute, rodeado de amigos y seres queridos. Nuestros licores son el complemento perfecto para esas ocasiones especiales en las que se crean recuerdos duraderos. Desde su destilación hasta su embotellado, nos aseguramos de mantener los más altos estándares de calidad y artesanía en cada gota.</p>
+              <a href="#" class="btn-1">Informaciòn</a>
+        </div>   
+        <div class="heder-img">
+            <img src="../imagenes/licor1.jpg"  >
+        </div>
+</header>
+
+<!--<nav class="menu">
+      <section class="menu_container">
+        <h1 class="menu_logo">Licoreria</h1>
+
+        <ul class="menu_links">
+            <li class="menu_item">
+                <a href="#" class="menu_link">Inicio</a>
+            </li>
+    
+            <li class="menu_item menu_item--show">
+                <a href="#" class="menu_link">Producto <img src="imagenes/arrow.svg" class="menu_arrow"> </a>
+    
+                <ul class="menu_nesting">
+                    <li class="menu_inside">
+                       <a href="#" class="menu_link menu_link--inside">About 1</a>
+                    </li>
+                    <li class="menu_inside">
+                        <a href="#" class="menu_link menu_link--inside">About 2</a>
+                     </li>
+                     <li class="menu_inside">
+                        <a href="#" class="menu_link menu_link--inside">About 3</a>
+                     </li>
+                </ul>
+            </li>
+    
+            <li class="menu_item menu_item--show">
+                <a href="#" class="menu_link">Proceso <img src="imagenes/arrow.svg" class="menu_arrow"></a>
+    
+                <ul class="menu_nesting">
+                    <li class="menu_inside">
+                       <a href="#" class="menu_link menu_link--inside">Proceso 1</a>
+                    </li>
+                    <li class="menu_inside">
+                        <a href="#" class="menu_link menu_link--inside">Proceso 2</a>
+                     </li>
+                     <li class="menu_inside">
+                        <a href="#" class="menu_link menu_link--inside">Proceso 3</a>
+                     </li>
+                </ul>
+            </li>
+    
+            <li class="menu_item menu_item--show">
+                <a href="#" class="menu_link">Empresa <img src="imagenes/arrow.svg" class="menu_arrow"></a>
+    
+                <ul class="menu_nesting">
+                    <li class="menu_inside">
+                       <a href="#" class="menu_link menu_link--inside">Empresa 1</a>
+                    </li>
+                    <li class="menu_inside">
+                        <a href="#" class="menu_link menu_link--inside">Empresa 2</a>
+                     </li>
+                </ul>
+            </li>
+            
+            <li class="menu_item">
+                <a href="#" class="menu_link">Contacto</a>
+            </li>
+          </ul>
+
+          <div class="menu_licoreria">
+            <img src="imagenes/menu.svg" class="menu_img">
+          </div>
+    
+      </section>     
+</nav>
+-->
+
+<!--Parte de los productos-->
+    <div class="licor">
+        <div id="productos" class="licor-content container">
+            <h2>Tipos de Aguardiente</h2>
+            <p class="txt-p">
+                El aguardiente es una bebida alcohólica destilada que se caracteriza por tener un alto contenido de alcohol. Es comúnmente conocido como un licor fuerte y se produce a través de la fermentación y destilación de diferentes ingredientes, como uvas, frutas, caña de azúcar, cereales o hierbas.
+            </p>
+            <div id="aguardiente" class="licor-group">
+                <div class="licor-1">
+                    <img src="../imagenes/agu8.jpg" height="250" width="250">
+                    <h3>Aguardiente Clasico</h3>
+                    <p>Es un aguardiente de caña de azúcar refinado y elaborado con cañas cultivadas en los andes ecuatorianos, lo cual garantiza un producto superior de características únicas. <br>Dentro del portafolio, este producto es de mayor trayectoria por su evidente sabor y aroma a caña de azúcar.</p>
+                </div>
+
+                <div class="licor-1">
+                    <img src="../imagenes/agu6.png" height="250" width="250">
+                    <h3>Botella Cuencano</h3>
+                    <p>Es un aguardiente de caña de azúcar refinado y elaborado con cañas cultivadas en los andes ecuatorianos, lo cual garantiza un producto superior de características únicas.<br> Es un producto con sabor y aroma más delicados, con el mismo carácter e identidad de un aguardiente clásico.</p>
+                    
+                </div>
+
+                <div class="licor-3">
+                    <img src="../imagenes/agu4.png" height="250" width="100">
+                    <h3>Aguardiente Blanco del Valle Sin Azúcar</h3>
+                    <p>Es elaborado con alcohol extraneutro de gran calidad, tratado con agua refinada de alta pureza, inigualable aroma, sabor con mayor intensidad y notas dulces ligeramente suavizadas.</p>
+                </div>
+               
+                <div class="licor-4">
+                    <img src="../imagenes/agu7.webp" height="250" width="190">
+                    <h3>Aguardiente Antioqueño Rojo</h3>
+                    <p>Es elaborado con alcoholes extra-neutros, esencias naturales de anís, azúcar refinada de alta pureza y agua potable tratado con filtros de carbón, todos estos insumos mezclados conjugan el sabor inigualable del Aguardiente.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+
+   <section id="procesos" class="proceso" >
+    <div class="proceso-1">
+        <h2 id="destilacion">Destilaciòn Artesanal</h2>
+        <img src="../imagenes/des1.jpg" height="310" width="550" class="foto">
+        <div class="texto">
+            <p>Las cañas cultivadas en el valle de yunguilla son cosechadas y sometidas a un proceso de molienda en trapiches de un solo paso. El jugo de caña así obtenido se filtra para eliminar el bagacillo y se coloca en cubas de fermentación. Se da por terminado el proceso de fermentación cuando casi todos los azúcares de las “chichas” o “mostos” se han convertido en alcohol.
+                Los mostos fermentados se colocan en alambiques y al calor del fuego se realiza la destilación, proceso que permite la obtención del aguardiente. Durante esta etapa las llamadas “puntas” y “vinillo”, que corresponden a las “cabezas” y “colas” de la destilación, son retiradas y desechadas, esto garantiza que se eliminen sustancias volátiles que pueden tener cierto grado de toxicidad así como impurezas y contaminantes que pueden afectar las características organolépticas (olor, sabor y apariencia) del producto.<br>
+             </p>
+        </div>
+    </div>
+    <div class="proceso-2">
+        <h2 id="moderna">Moderna Elaboración</h2>
+        <img src="../imagenes/des2.jpg" height="310" width="550" class="foto">
+        <div class="texto">
+            <p>Los secretos ancestrales resumidos en nuestras formulaciones se combinan con tecnología de avanzada para dar lugar a la preparación de los productos. Nuestra planta de producción cuenta con modernas instalaciones y sistemas totalmente automatizados, que garantizan un control y manejo adecuado durante la elaboración de los productos.
+               Previo al proceso de elaboración propiamente dicho, rectificamos el aguardiente de caña ara estandarizarlo y mejorar sus características. En el proceso de mezcla se dosifican los diferentes componentes o materias primas de manera automática de acuerdo con nuestras formulaciones únicas, y luego se procede a sucesivas etapas de homogeneización, reposo y filtración del producto elaborado. La calidad de cada uno de los productos elaborados se verifica permanentemente a lo largo de la línea de producción.
+            </p>    
+        </div>
+    </div>
+   </section>
+
+    <section class="tradicion"> 
+        <h2 id="tradicion">Tradiciòn</h2>
+        <div class="tradicion-content container">
+            <div class="tradicion-2">
+                <img  src="../imagenes/tra1.jpg" height="310" width="550">
+                <img  src="../imagenes/tra2.jpg" height="310" width="550">
+            </div>
+        <div id="empresa" class="tradicion-1">
+            <p>En la época de la conquista española por órdenes del rey de españa, se impuso la prohibición del consumo del “asua” dentro del territorio conquistado, por lo que se destruyeron las plantaciones de caña y los alambiques incaicos. Luego, durante la colonia se introdujo nuevamente la caña de azucar y se escogieron los valles más cálidos y aptos para su siembra para de esta manera volver a obtener el tan preciado “asua”. Con el tiempo los españoles descubrieron el valle de yunguilla, que efectivamente, por su clima, situación geográfica y riqueza de su tierra, en este lugar las cañas <br>cultivadas tenían características únicas que le conferían un aroma y sabor especial a los aguardientes obtenidos a partir de ellas.
+               Ya en la época republicana, la tradición de elaborar aguardientes en el magnífico valle de yunguilla, se afianzó y creció gracias al empuje de los hacendados, que hicieron del cultivo de la caña y de la destilación del aguardiente, su medio de vida.
+            </p>
+        </div>
+        </div>
+    </section>
+        
+    <!--VIDEOS-->
+      <section id="videos" class="video">
+         <div class="video-content container">
+            <div class="video-1">
+                <h2>Proceso de destilaciòn</h2>
+                <p> La destilación de aguardiente comienza con el proceso de molienda de la caña para extraer su jugo. Luego, el jugo se somete a un proceso de fermentación, en el cual los azúcares presentes se convierten en alcohol mediante la acción de levaduras. <br>
+                    Una vez que se ha obtenido el líquido fermentado, conocido como "vino de caña", se procede a destilarlo. La destilación implica calentar el vino de caña en un alambique para separar sus componentes a través de la evaporación y condensación selectiva. <br>
+                    Durante la destilación, los componentes más volátiles, como el alcohol, se evaporan primero y ascienden por una columna de destilación. A medida que el vapor se enfría en la parte superior de la columna, se condensa y se recoge como un líquido destilado, que es el aguardiente.
+                </p>
+            </div>
+            <div class="video-2">
+              <video class="v1" controls>
+                <source src="../videos/comercial.mp4" type="video/mp4">
+              </video>
+              <video class="v2" controls>
+                <source src="../videos/proceso.mp4" type="video/mp4">
+              </video>
+            </div>
+         </div>
+      </section>
+ 
+    <!--FORMULARIO-->
+
+      <div class="my-form">
+        <h1 id="contacto">Contacto</h1>
+        <p><b>Celular:</b>0985426799</p>
+        <p><b>Email:</b> servicioalcliente@gmail.com</p>
+        <form onsubmit="return validarFormulario()">
+            <div class="campo-1">
+            <input class="campo" type="text" id="nombre" placeholder="Nombre">
+            <input class="campo" type="text" id="correo" placeholder="Email">
+            </div>
+            <textarea id="mensaje" class="campo" cols="20" rows="20" placeholder="Ingrese su mensaje" required></textarea>
+            <input type="submit" value="Enviar" class="btn-1">
+        </form>   
+      </div>
+
+      <script src="js/app.js"></script>
+</body>
+
+<footer class="footer">
+    <a href="#inicio" class="subir"><img src="../imagenes/sub1.png"></a>
+    <p>Síguenos</p>
+        <div class="redes">
+        <a href="https://www.instagram.com/" target="_blank">
+            <img src="../imagenes/ico01.png" alt="">
+        </a>
+        <a href="https://www.instagram.com/" target="_blank">
+            <img src="../imagenes/ico02.png" alt="">
+        </a>
+        <a href="https://www.instagram.com/" target="_blank">
+            <img src="../imagenes/ico04.png" alt="">
+        </a>
+    </div> 
+    <p>LICORERIA_LMAO &copy; 2023.</p>
+</footer>
+  
+</html>

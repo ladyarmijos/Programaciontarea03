@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!--ICONO DE LA PAGINA-->
+    <link rel="shortcut icon" href="imagenes/logo.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="item">
+            <h2 class="logo"><i class='bx bxl-xing'></i>Licoreria</h2>
+            <div class="text-item">
+              <h2>Bienvenido</h2>
+              <p>Nos preocupamos por el consumo responsable, prohibiendo la venta de alcohol a menores.</p>
+              <div class="social-icon">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-youtube'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+               </div>
+            </div>
+        </div>
+
+        <div class="login-section">
+            <div class="form-box login">
+                <form action="" id="loginForm">
+                 <h2>Iniciar Sesiòn</h2>
+                 <div class="input-box">
+                       <span class="icon"><i class='bx bxs-envelope'></i></span>
+                       <input type="email" id="loginEmail" required>
+                       <label for="">Email</label>
+                 </div>
+                 <div class="input-box">
+                    <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                    <input type="password" id="loginContrasena" required>
+                    <label for="">Contraseña</label>
+                 </div>
+                 <div class="remember-password">
+                      <!--<label for=""><input type="checkbox">Remember Me</label>-->
+                      <label for="visible"><input type="checkbox" id="visible">Mostrar Contraseña</label>
+                     <!-- <a href="#">Forget Password</a>-->
+                </div>
+                    <!--<button class="btn">Ingresar</button>-->
+                    <button class="btn" id="submit">Ingresar</button>
+                    <div class="create-account">
+                     <p> Crear un cuenta? <a href="#" class="register-link">Registrarse</a></p>
+                    </div>
+                </form>
+            </div>
+           
+            <div class="form-box register">
+                <form action="" id="registerForm">
+                 <h2>Registrarse</h2>
+                 <div class="input-box">
+                    <span class="icon"><i class='bx bxs-user'></i></i></span>
+                    <input type="text" id="nombre" required>
+                    <label for="">Nombre</label>
+                 </div>
+                 <div class="input-box">
+                       <span class="icon"><i class='bx bxs-envelope'></i></span>
+                       <input type="email" id="email" required>
+                       <label for="">Email</label>
+                 </div>
+                 <div class="input-box">
+                    <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                    <input type="password" id="contrasena" required>
+                    <label for="">Contraseña</label>
+                 </div>
+                 <!--<div class="remember-password">
+                      <label for=""><input type="checkbox">Estoy de acuerdo</label>
+                    </div>-->
+                    <button class="btn" type="submit" value="Registrarse">Ingresar</button>
+                    <div class="create-account">
+                     <p>Ya tengo una cuenta? <a href="#" class="login-link">Iniciar Sesiòn</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        // Array para almacenar los usuarios registrados
+        var usuariosRegistrados = [];
+
+        // Registrar un nuevo usuario
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var nombre = document.getElementById('nombre').value;
+            var contrasena = document.getElementById('contrasena').value;
+
+            // Crear un objeto usuario con los datos ingresados
+            var usuario = {
+                email: email,
+                nombre: nombre,
+                contrasena: contrasena
+            };
+
+            // Agregar el usuario al array de usuarios registrados
+            usuariosRegistrados.push(usuario);
+
+            console.log('Registro exitoso');
+
+            // Limpiar los campos del formulario después del registro
+            document.getElementById('registerForm').reset();
+        });
+
+        // Iniciar sesión
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var email = document.getElementById('loginEmail').value;
+            var contrasena = document.getElementById('loginContrasena').value;
+
+            // Verificar si el usuario existe en el array de usuarios registrados
+            var usuarioEncontrado = usuariosRegistrados.find(function(usuario) {
+                return usuario.email === email && usuario.contrasena === contrasena;
+            });
+
+            if (usuarioEncontrado) {
+                console.log('Inicio de sesión exitoso');
+
+                // Guardar la información de inicio de sesión en una cookie o en el almacenamiento local
+                // Por ejemplo, guardar el email del usuario en una cookie llamada 'sesion_email'
+                document.cookie = 'sesion_email=' + usuarioEncontrado.email + '; path=/';
+
+                // Redirigir a otra página después de iniciar sesión
+                window.location.href = 'js/index.html';
+            } else {
+                console.log('Email o contraseña incorrectos');
+
+                 // Limpiar los campos del formulario después del registro
+            document.getElementById('loginForm').reset();
+            }
+        });
+    </script>
+
+
+<script>
+    var checkbox = document.getElementById('visible');
+    var loginContrasenaInput = document.getElementById('loginContrasena');
+
+    checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+            // Mostrar la contraseña
+            loginContrasenaInput.type = 'text';
+        } else {
+            // Ocultar la contraseña
+            loginContrasenaInput.type = 'password';
+        }
+    });
+</script>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
